@@ -117,7 +117,7 @@ const Home = () => {
                   className="relative z-10"
                 >
                   <img 
-                    src="/assets/products/VITRO HOLD (1).png" 
+                    src="/assets/products/vitro_hold.png" 
                     alt="Vitro Hold" 
                     className="w-full max-w-md mx-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.5)]"
                     onError={(e) => {
