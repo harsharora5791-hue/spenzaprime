@@ -1,22 +1,39 @@
-console.log('Starting production server...');
+console.log('--- SERVER STARTING ---');
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fs from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const app = express();
-const PORT = process.env.PORT || 5000;
+console.log('Current directory:', __dirname);
+console.log('Checking for dist folder...');
 
-// Serve static files from the dist directory
-app.use(express.static(path.join(__dirname, 'dist')));
+if (fs.existsSync(path.join(__dirname, 'dist'))) {
+  console.log('✅ dist folder found');
+} else {
+  console.log('❌ dist folder NOT found at', path.join(__dirname, 'dist'));
+}
 
-// Handle React routing, return all requests to React app
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
+try {
+  const app = express();
+  const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+  console.log('Setting up static middleware...');
+  app.use(express.static(path.join(__dirname, 'dist')));
+
+  console.log('Setting up catch-all route...');
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  });
+
+  console.log(`Attempting to listen on port ${PORT}...`);
+  app.listen(PORT, () => {
+    console.log(`🚀 Server is successfully running on port ${PORT}`);
+  }).on('error', (err) => {
+    console.error('❌ Server failed to start:', err);
+  });
+} catch (error) {
+  console.error('🔥 Fatal error during server setup:', error);
+}
