@@ -1,6 +1,6 @@
 import { Mail, MapPin, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import logoImg from '../assets/Spenza Prime logo.png'
+import logoImg from '../assets/spenza_prime_logo.png'
 
 const Footer = () => {
   return (

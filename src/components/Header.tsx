@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import logoImg from '../assets/Spenza Prime logo.png'
+import logoImg from '../assets/spenza_prime_logo.png'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
