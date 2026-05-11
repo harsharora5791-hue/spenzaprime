@@ -24,7 +24,7 @@ try {
   app.use(express.static(path.join(__dirname, 'dist')));
 
   console.log('Setting up catch-all route...');
-  app.get('*', (req, res) => {
+  app.use((req, res) => {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
   });
 
