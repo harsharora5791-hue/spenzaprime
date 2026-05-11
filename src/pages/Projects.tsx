@@ -11,7 +11,7 @@ interface Project {
   description: string;
   image: string;
   stat: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
   location: string;
   date: string;
   client: string;
