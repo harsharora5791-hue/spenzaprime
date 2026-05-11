@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import { cn } from '../lib/utils'
 import { useNavigate } from 'react-router-dom'
 import SEO from '../components/SEO'
+import vitroHold from '../assets/products/vitro_hold.png'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -117,7 +118,7 @@ const Home = () => {
                   className="relative z-10"
                 >
                   <img 
-                    src="/products/vitro_hold.png" 
+                    src={vitroHold} 
                     alt="Vitro Hold" 
                     className="w-full max-w-md mx-auto drop-shadow-[0_35px_35px_rgba(0,0,0,0.5)]"
                     onError={(e) => {

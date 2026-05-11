@@ -4,6 +4,17 @@ import Footer from '../components/Footer'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search, ArrowRight, X, CheckCircle2, Shield, Beaker, FileText } from 'lucide-react'
 import SEO from '../components/SEO'
+import vitroHold from '../assets/products/vitro_hold.png'
+import vitroHoldProGrey from '../assets/products/vitro_hold_pro_grey.png'
+import vitroHoldProWhite from '../assets/products/vitro_hold_pro_white.png'
+import absoluteFlexGrey from '../assets/products/absolute_flex_grey.png'
+import absoluteFlexWhite from '../assets/products/absolute_flex_white.png'
+import ceraFixPlusGrey from '../assets/products/cera_fix_plus_grey.png'
+import ceraFixPlusWhite from '../assets/products/cera_fix_plus_white.png'
+import ceraFix from '../assets/products/cera_fix.png'
+import extroFlexGrey from '../assets/products/extro_flex_grey.png'
+import extroFlexWhite from '../assets/products/extro_flex_white.png'
+import extroHold from '../assets/products/extro_hold.png'
 
 interface Product {
   name: string;
@@ -25,7 +36,7 @@ const Products = () => {
       description: 'Advanced C2T Type II cementitious adhesive specifically engineered for interior floor and wall applications including large format tiles.',
       specs: ['Model: SP-2010 | GREY', 'Type: C2T | TYPE II', 'Packaging: 20 KG Bag', 'Applications: Interior Floor & Wall'],
       features: ['Exceeds ANSI A118.4T', 'Meets EN 12004/ISO 13007', 'High bond strength', 'Non-slip vertical performance'],
-      image: '/products/vitro_hold.png'
+      image: vitroHold
     },
     { 
       name: 'Vitro Hold Pro Grey', 
@@ -33,7 +44,7 @@ const Products = () => {
       description: 'Professional grade high-bond adhesive for demanding tile installations on various substrates.',
       specs: ['Color: Grey', 'Grade: Professional', 'Packaging: 20 KG'],
       features: ['Superior slip resistance', 'Extended open time', 'Easy workability'],
-      image: '/products/vitro_hold_pro_grey.png'
+      image: vitroHoldProGrey
     },
     { 
       name: 'Vitro Hold Pro White', 
@@ -41,7 +52,7 @@ const Products = () => {
       description: 'High-performance white cement adhesive optimized for translucent stones and light-colored marble.',
       specs: ['Color: White', 'Grade: Professional', 'Packaging: 20 KG'],
       features: ['Non-staining formula', 'Excellent brightness', 'Strong adhesion'],
-      image: '/products/vitro_hold_pro_white.png'
+      image: vitroHoldProWhite
     },
     { 
       name: 'Absolute Flex Grey', 
@@ -49,7 +60,7 @@ const Products = () => {
       description: 'Ultra-flexible polymer modified adhesive designed for areas subject to vibration and thermal movement.',
       specs: ['Color: Grey', 'Type: Highly Flexible', 'Packaging: 20 KG'],
       features: ['Deformable S1 Class', 'Excellent for external areas', 'Shock resistant'],
-      image: '/products/absolute_flex_grey.png'
+      image: absoluteFlexGrey
     },
     { 
       name: 'Absolute Flex White', 
@@ -57,7 +68,7 @@ const Products = () => {
       description: 'Premium white flexible adhesive for high-end mosaic and marble installations in high-stress areas.',
       specs: ['Color: White', 'Type: Highly Flexible', 'Packaging: 20 KG'],
       features: ['High flexibility', 'UV resistant', 'Superior bond'],
-      image: '/products/absolute_flex_white.png'
+      image: absoluteFlexWhite
     },
     { 
       name: 'Cera Fix Plus Grey', 
@@ -65,7 +76,7 @@ const Products = () => {
       description: 'Enhanced cementitious adhesive with extended open time for ceramic and vitrified tiles.',
       specs: ['Color: Grey', 'Variant: Plus', 'Packaging: 20 KG'],
       features: ['Enhanced durability', 'Easy mixing', 'Cost-effective performance'],
-      image: '/products/cera_fix_plus_grey.png'
+      image: ceraFixPlusGrey
     },
     { 
       name: 'Cera Fix Plus White', 
@@ -73,7 +84,7 @@ const Products = () => {
       description: 'White variant of Cera Fix Plus, ideal for ceramic tiles and small format natural stones.',
       specs: ['Color: White', 'Variant: Plus', 'Packaging: 20 KG'],
       features: ['Smooth finish', 'Consistent quality', 'Strong initial tack'],
-      image: '/products/cera_fix_plus_white.png'
+      image: ceraFixPlusWhite
     },
     { 
       name: 'Cera Fix', 
@@ -81,7 +92,7 @@ const Products = () => {
       description: 'Reliable everyday tile adhesive for standard interior ceramic tile installations on floors.',
       specs: ['Standard Grade', 'Packaging: 20 KG', 'Usage: Internal Floors'],
       features: ['Good bond strength', 'Simple application', 'Economical choice'],
-      image: '/products/cera_fix.png'
+      image: ceraFix
     },
     { 
       name: 'Extro Flex Grey', 
@@ -89,7 +100,7 @@ const Products = () => {
       description: 'High-strength flexible adhesive for exterior tile cladding and large format vitrified tiles.',
       specs: ['Color: Grey', 'Grade: Exterior Flex', 'Packaging: 20 KG'],
       features: ['Weather resistant', 'Excellent grab', 'Vertical slip resistance'],
-      image: '/products/extro_flex_grey.png'
+      image: extroFlexGrey
     },
     { 
       name: 'Extro Flex White', 
@@ -97,7 +108,7 @@ const Products = () => {
       description: 'White exterior grade flexible adhesive for high-visibility cladding and light stone facades.',
       specs: ['Color: White', 'Grade: Exterior Flex', 'Packaging: 20 KG'],
       features: ['Thermal stability', 'Anti-sagging', 'High aesthetic value'],
-      image: '/products/extro_flex_white.png'
+      image: extroFlexWhite
     },
     { 
       name: 'Extro Hold', 
@@ -105,7 +116,7 @@ const Products = () => {
       description: 'Superior grip adhesive optimized for vertical applications and heavy wall tiles.',
       specs: ['High Grip Formula', 'Packaging: 20 KG', 'Applications: Wall & Floor'],
       features: ['Zero vertical slip', 'High initial bond', 'Reliable performance'],
-      image: '/products/extro_hold.png'
+      image: extroHold
     },
   ]
 
@@ -285,6 +296,9 @@ const Products = () => {
                   src={selectedProduct.image} 
                   alt={selectedProduct.name}
                   className="w-full h-full object-cover"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=800';
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-8 md:hidden">
                   <h2 className="text-3xl font-bold text-white font-heading">{selectedProduct.name}</h2>
