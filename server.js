@@ -1,3 +1,4 @@
+console.log('Starting production server...');
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
